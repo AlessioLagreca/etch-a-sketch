@@ -9,6 +9,7 @@ createGrid(16);
 
 let newBtn = document.getElementById("new");
 let clearBtn = document.getElementById("clear");
+let rainbowBtn = document.getElementById("rainbow");
 
 function createGrid(newSize) {
     // clear current grid
@@ -31,19 +32,28 @@ function createGrid(newSize) {
     }
 }
 
-// adds class which makes background of cell different colour
+
 function draw() {
     this.classList.add('draw');
 }
+
+function rainbow() {
+    var o = Math.round, r = Math.random, s = 255;
+    var color = 'rgba(' + o(r()*s) + ',' + o(r()*s) + ',' + o(r()*s) + ',' + r().toFixed(1) + ')';
+    console.log(color);
+    this.style.backgroundColor = color;
+}
+
 
 clearBtn.addEventListener('click', () => {
     let cells = document.querySelectorAll(".cell");
     cells.forEach(cell => {
         cell.classList.remove('draw');
+        cell.style.backgroundColor = "white";
     })
 })
 
-// when click 'clear' button: remove 'draw' class from all cells
+
 newBtn.addEventListener('click', () => {
     let newSize = prompt("Enter a new grid size 1-100");
     if (!(newSize >= 1 && newSize <= 100)) {
@@ -51,4 +61,14 @@ newBtn.addEventListener('click', () => {
         return;
     }
     createGrid(newSize)
+});
+
+
+rainbowBtn.addEventListener('click', () => {
+    let cells = document.querySelectorAll(".cell");
+
+    cells.forEach(cell => {
+        cell.removeEventListener('mouseover', draw);
+        cell.addEventListener('mouseover', rainbow);
+    });
 });
