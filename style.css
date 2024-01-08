@@ -1,0 +1,57 @@
+body {
+  background-color: blue;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+}
+
+  .gridContainer {
+    border-style: solid;
+    border-color: grey;
+    border-radius: 1%;
+    border-width: 10px;
+    margin-top: 30px;
+    width: 500px;
+    height: 500px;
+    display: flex;
+    flex-direction: column;
+    
+  }
+
+  .row {
+    flex: 1;
+    display: flex;
+    flex-direction: row;
+}
+
+#button-container {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    gap: 30px;
+    margin-top: 50px;
+}
+
+button {
+    background-color: darkblue;
+    color: white;
+    padding: 14px 10px;
+    border-radius: 8%;
+    text-align: center;
+    font-size: 1.5em;
+    font-weight: 800;
+    border: 3px solid grey;
+}
+
+.cell {
+    background-color: white;
+    flex: 1; 
+    border-color: black;
+    border-width: 1px;
+    border-style: solid; 
+}
+
+.draw {
+    background-color: darkblue;
+}
